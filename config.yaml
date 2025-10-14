@@ -1,0 +1,132 @@
+# Financial Review Pipeline Configuration
+
+# Input/Output Paths
+mapping_file: data/mapping.xlsx
+fagl_dir: data/fagl_exports/
+output_dir: reports/
+
+# Date Range (YYYY-MM-DD format)
+start_date: "2024-01-01"
+end_date: "2024-12-31"
+
+# Entity Filter (null for all entities)
+entity: null
+
+# Data Processing
+amount_sign_convention: "positive_debit"  # or "positive_credit"
+default_currency: "EUR"
+
+# Column name mapping (customize if your FAGL03 has different column names)
+column_mapping:
+  posting_date: "posting_date"
+  doc_id: "doc_id"
+  gl_account: "gl_account"
+  amount: "amount"
+  currency: "currency"
+  posting_text: "posting_text"
+  customer_vendor: "customer_vendor"
+  due_date: "due_date"
+  open_amount: "open_amount"
+  company_code: "company_code"
+
+# Aging Analysis (days ranges)
+aging_buckets:
+  - [0, 0, "Current"]
+  - [1, 30, "0-30 days"]
+  - [31, 60, "31-60 days"]
+  - [61, 90, "61-90 days"]
+  - [91, 999999, ">90 days"]
+
+# Analytics Configuration
+analytics:
+  # KPIs
+  enable_growth_metrics: true
+  enable_ratios: true
+  
+  # Trend Analysis
+  rolling_windows: [3, 6, 12]  # months
+  enable_seasonality: true
+  
+  # Anomaly Detection
+  enable_anomaly_detection: true
+  anomaly_threshold_zscore: 3.0
+  anomaly_threshold_mad: 3.5
+  use_isolation_forest: true
+  
+  # Forecasting
+  enable_forecasting: true
+  forecast_periods: 6
+  forecast_confidence_level: 0.95
+  
+  # Top Lists
+  top_n_vendors: 10
+  top_n_customers: 10
+  top_n_expenses: 15
+  
+  # Pareto Analysis
+  pareto_threshold: 0.80  # 80/20 rule
+
+# Receivables/Payables Analysis
+ar_ap:
+  calculate_dso: true
+  calculate_dpo: true
+  flag_overdue: true
+  overdue_threshold_days: 30
+
+# Output Configuration
+output:
+  generate_excel: true
+  generate_pptx: true
+  generate_dashboard: true
+  generate_parquet: true
+  
+  # Excel options
+  excel_sheets:
+    - summary
+    - monthly_trends
+    - kpis
+    - ar_aging
+    - ap_aging
+    - top_vendors
+    - top_customers
+    - anomalies
+    - forecast
+  
+  # PowerPoint options
+  pptx_template: null  # path to custom template if available
+  include_speaker_notes: true
+  
+# NLP Commentary
+nlp:
+  enable_commentary: true
+  confidence_levels: true
+  top_insights: 3
+  top_risks: 3
+  max_recommendations: 5
+  explain_mode: false
+
+# Logging
+logging:
+  level: INFO  # DEBUG, INFO, WARNING, ERROR
+  log_file: logs/pipeline.log
+  structured: true
+
+# Validation
+validation:
+  warn_unmapped_gls: true
+  check_date_continuity: true
+  check_currency_consistency: true
+  min_data_quality_score: 0.7
+
+# Performance
+performance:
+  parallel_processing: true
+  max_workers: 4
+  chunk_size: 10000
+
+# Reproducibility
+reproducibility:
+  generate_manifest: true
+  calculate_checksums: true
+  save_config_snapshot: true
+

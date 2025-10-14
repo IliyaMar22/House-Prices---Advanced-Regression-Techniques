@@ -1,0 +1,15 @@
+gl_account,bucket,type,entity,notes
+400000,Revenue - Product A,Revenue,BG,Product A Sales
+400100,Revenue - Product B,Revenue,BG,Product B Sales
+400200,Revenue - Services,Revenue,BG,Service Revenue
+600100,OPEX - Marketing,OPEX,BG,Marketing advertising
+600200,OPEX - IT Services,OPEX,BG,IT and software
+600300,OPEX - Office Rent,OPEX,BG,Office rental costs
+600400,OPEX - Utilities,OPEX,BG,Electricity water etc
+600500,OPEX - Professional Services,OPEX,BG,Consultants legal
+610000,Payroll - Salaries,Payroll,BG,Gross salaries
+610100,Payroll - Benefits,Payroll,BG,Employee benefits
+650000,Interest - Bank Loans,Interest,BG,Interest expenses
+120000,Receivables - Customers,Receivable,BG,Trade debtors
+230100,Payables - Suppliers,Payable,BG,Trade creditors
+
