@@ -1,0 +1,227 @@
+# Bulgarian Financial Review Pipeline Configuration
+# Adapted for Bulgarian accounting standards and ABCOTD classifications
+
+# Data Sources Configuration
+data_sources:
+  mapping_file: "/Users/bilyana/Desktop/Chronology & Mapping/Mapping export.xlsx"
+  fagl_directory: "data/fagl_exports"
+  
+  # Bulgarian mapping file column mappings
+  mapping_columns:
+    gl_account: "ID"                    # Account ID (numeric)
+    account_description: "Account name" # Account Description in Bulgarian
+    fs_sub_class: "FS Sub class"        # Financial Statement Sub Class (very important!)
+    fs_line: "FS Line"                  # Financial Statement Line item
+    abcotd: "ABCOTD"                    # ABCOTD classification
+    content_area: "Content area"        # Content area classification
+    classes: "Classes"                  # Main class (Assets, Liabilities, Equity, Profit (loss))
+    note_line: "Note line"              # Note line description
+  
+  # FAGL03 export column mappings (adjust based on your export format)
+  fagl_columns:
+    posting_date: "posting_date"
+    document_no: "document_no" 
+    gl_account: "gl_account"
+    amount: "amount"
+    currency: "currency"
+    posting_text: "posting_text"
+    customer_vendor: "customer_vendor"
+    due_date: "due_date"
+    open_amount: "open_amount"
+    company_code: "company_code"
+
+# Bulgarian Financial Statement Classification
+# Based on your FS Sub classes and ABCOTD structure
+financial_classification:
+  # P&L Categories (from ABCOTD and FS Sub class "Profit (loss)")
+  revenue_buckets:
+    - "Revenue"
+    - "Other income"
+  
+  expense_buckets:
+    - "Cost of sales"
+    - "Operating expenses"
+    - "Payroll"
+    - "Other expenses"
+    - "Income tax expense or benefit"
+    - "Interest on lease obligations"
+    - "Depreciation of property, plant, and equipment"
+    - "Depreciation/amortization of rights of use assets"
+    - "Amortization of intangibles"
+  
+  # Balance Sheet Categories
+  asset_buckets:
+    current_assets:
+      - "Cash and cash equivalents"
+      - "Inventory"
+      - "Receivables - trade accounts"
+      - "Other receivables"
+      - "Prepaid expenses and accrued income"
+    non_current_assets:
+      - "Property, plant, and equipment"
+      - "Intangibles - other"
+      - "Leases - right of use assets"
+      - "Deferred tax asset or liability"
+  
+  liability_buckets:
+    current_liabilities:
+      - "Payables - trade accounts"
+      - "Other payables"
+      - "Deferred revenue"
+      - "Lease liabilities"
+    non_current_liabilities:
+      - "Lease liabilities"  # Non-current portion
+      - "Deferred tax asset or liability"
+  
+  equity_buckets:
+    - "Equity"
+
+# Bulgarian-specific Analysis Configuration
+analysis:
+  # Date range for analysis
+  start_date: "2023-01-01"
+  end_date: "2024-12-31"
+  
+  # Currency settings
+  base_currency: "BGN"  # Bulgarian Lev
+  currency_tolerance: 0.01
+  
+  # Bulgarian accounting periods
+  fiscal_year_start: "01-01"  # January 1st
+  reporting_periods:
+    - "monthly"
+    - "quarterly" 
+    - "yearly"
+  
+  # AR/AP Aging Configuration (Bulgarian standards)
+  aging_buckets:
+    current: 0      # Current
+    days_1_30: 30   # 1-30 days
+    days_31_60: 60  # 31-60 days  
+    days_61_90: 90  # 61-90 days
+    days_91_180: 180 # 91-180 days
+    days_181_365: 365 # 181-365 days
+    over_365: 999   # Over 365 days (overdue)
+  
+  # Bulgarian KPI thresholds
+  kpi_thresholds:
+    dso_target: 45        # Days Sales Outstanding target
+    dpo_target: 30        # Days Payables Outstanding target
+    gross_margin_min: 15  # Minimum gross margin %
+    opex_ratio_max: 0.85  # Maximum OPEX to Revenue ratio
+    payroll_ratio_max: 0.25 # Maximum Payroll to OPEX ratio
+
+# Bulgarian Language Support
+localization:
+  language: "bg"  # Bulgarian
+  currency_symbol: "лв"
+  date_format: "%d.%m.%Y"
+  number_format:
+    decimal_separator: ","
+    thousands_separator: " "
+  
+  # Bulgarian text for reports
+  translations:
+    executive_summary: "Изпълнително резюме"
+    key_metrics: "Ключови показатели"
+    trends_analysis: "Анализ на тенденциите"
+    aging_analysis: "Анализ на вземанията и задълженията"
+    anomalies: "Аномалии"
+    recommendations: "Препоръки"
+    revenue: "Приходи"
+    expenses: "Разходи"
+    assets: "Активи"
+    liabilities: "Задължения"
+    equity: "Собствен капитал"
+    current: "Текущи"
+    non_current: "Нетекущи"
+    overdue: "Просрочени"
+    risk_level_high: "Висок риск"
+    risk_level_medium: "Среден риск"
+    risk_level_low: "Нисък риск"
+
+# Bulgarian-specific Reporting
+reporting:
+  # Output directory
+  output_dir: "reports_bulgarian"
+  
+  # Bulgarian report templates
+  templates:
+    executive_summary_bg: "templates/executive_summary_bulgarian.md"
+    email_summary_bg: "templates/email_summary_bulgarian.md"
+  
+  # Bulgarian-specific report sections
+  sections:
+    - "bulgarian_compliance"
+    - "abcotd_analysis" 
+    - "fs_sub_class_breakdown"
+    - "bulgarian_kpis"
+    - "local_benchmarks"
+
+# Bulgarian Compliance and Standards
+compliance:
+  # Bulgarian accounting standards
+  standards:
+    - "Bulgarian Accounting Act"
+    - "IFRS"
+    - "Local GAAP"
+  
+  # Required disclosures
+  required_disclosures:
+    - "Related party transactions"
+    - "Contingent liabilities"
+    - "Going concern assessment"
+    - "Fair value measurements"
+
+# Bulgarian Data Quality Rules
+data_quality:
+  # Bulgarian-specific validation rules
+  validation_rules:
+    - "currency_consistency"
+    - "date_range_validation"
+    - "bulgarian_account_codes"
+    - "fs_classification_consistency"
+    - "abcotd_mapping_completeness"
+  
+  # Quality thresholds
+  quality_thresholds:
+    minimum_coverage: 0.95  # 95% of accounts must be mapped
+    maximum_orphans: 0.05   # Max 5% unmapped transactions
+    date_consistency: 0.98  # 98% date consistency required
+
+# Bulgarian-specific Features
+features:
+  # Enable Bulgarian-specific analysis
+  enable_bulgarian_analysis: true
+  enable_abcotd_classification: true
+  enable_fs_sub_class_breakdown: true
+  enable_local_benchmarks: true
+  
+  # Bulgarian language in outputs
+  bulgarian_language_output: true
+  mixed_language_support: true  # Bulgarian + English
+
+# Logging and Audit (Bulgarian context)
+logging:
+  level: "INFO"
+  format: "json"
+  audit_trail: true
+  
+  # Bulgarian-specific audit fields
+  audit_fields:
+    - "bulgarian_entity_id"
+    - "reporting_period"
+    - "compliance_status"
+    - "abcotd_coverage"
+    - "fs_classification_completeness"
+
+# Bulgarian Performance Settings
+performance:
+  # Memory optimization for Bulgarian data
+  chunk_size: 10000
+  max_memory_usage: "2GB"
+  
+  # Bulgarian-specific caching
+  cache_mappings: true
+  cache_abcotd_classifications: true
+  cache_fs_sub_classes: true
