@@ -1,0 +1,35 @@
+# 📊 Analysis Results
+
+This directory contains the results of financial analyses performed using the Financial Review Pipeline.
+
+## 🇧🇬 Bulgarian Financial Analysis 2024
+
+**[📁 bulgarian_analysis_2024/](bulgarian_analysis_2024/)** - Complete Bulgarian financial analysis results
+
+**Key Highlights:**
+- **610,334 transactions** analyzed from complete 2024 chronology
+- **25 ABCOTD categories** with individual monthly distributions
+- **Comprehensive PDF report** (9.8 MB) with detailed analysis
+- **25 interactive HTML charts** for each ABCOTD category
+- **Real-world Bulgarian financial data** processed
+
+**Quick Access:**
+- **[📄 Main PDF Report](bulgarian_analysis_2024/bulgarian_abcotd_detailed_analysis.pdf)** - Start here for complete analysis
+- **[📊 Revenue Analysis](bulgarian_analysis_2024/bulgarian_abcotd_Revenue.html)** - Main income stream
+- **[💰 Cost of Sales](bulgarian_analysis_2024/bulgarian_abcotd_Cost_of_sales.html)** - Product costs
+- **[🏢 Operating Expenses](bulgarian_analysis_2024/bulgarian_abcotd_Operating_expenses.html)** - Day-to-day operations
+
+## 📈 Sample Analysis (Original Pipeline)
+
+The original pipeline includes sample data analysis demonstrating the system's capabilities with synthetic data.
+
+## 🚀 Getting Started
+
+1. **Browse Results:** Click on any file to view analysis results
+2. **Interactive Charts:** HTML files provide interactive exploration
+3. **PDF Reports:** Comprehensive documentation for presentations
+4. **Run Your Own Analysis:** Use the pipeline with your own data
+
+---
+
+*All results are generated using the Financial Review Pipeline v2.0.0 with Bulgarian financial analysis capabilities.*
