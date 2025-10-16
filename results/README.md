@@ -19,6 +19,22 @@ This directory contains the results of financial analyses performed using the Fi
 - **[💰 Cost of Sales](bulgarian_analysis_2024/bulgarian_abcotd_Cost_of_sales.html)** - Product costs
 - **[🏢 Operating Expenses](bulgarian_analysis_2024/bulgarian_abcotd_Operating_expenses.html)** - Day-to-day operations
 
+## 📊 Bulgarian Financial Ratio Analysis 2024
+
+**[📁 ratio_analysis_2024/](ratio_analysis_2024/)** - Comprehensive financial ratio analysis with going concern assessment
+
+**Key Highlights:**
+- **18 applicable financial ratios** calculated from 610,334 transactions
+- **Going Concern Status: STRONG** (82.1/100 overall score)
+- **Comprehensive PDF report** with detailed ratio analysis
+- **Interactive dashboards** for ratio exploration
+- **Liquidity, Solvency, Cash Flow** comprehensive assessment
+
+**Quick Access:**
+- **[📄 Ratio Analysis PDF](ratio_analysis_2024/bulgarian_financial_ratio_analysis.pdf)** - Complete ratio analysis report
+- **[📊 Ratio Dashboard](ratio_analysis_2024/bulgarian_ratio_analysis_dashboard.html)** - Interactive ratio charts
+- **[🎯 Going Concern Assessment](ratio_analysis_2024/bulgarian_going_concern_assessment.html)** - Financial health scores
+
 ## 📈 Sample Analysis (Original Pipeline)
 
 The original pipeline includes sample data analysis demonstrating the system's capabilities with synthetic data.
