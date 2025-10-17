@@ -1,4 +1,4 @@
-"""Comprehensive Bulgarian Financial Analysis Script."""
+now """Comprehensive Bulgarian Financial Analysis Script."""
 
 import pandas as pd
 import numpy as np
