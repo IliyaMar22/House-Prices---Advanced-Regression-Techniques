@@ -1,0 +1,11 @@
+{
+  "is_valid": true,
+  "quality_score": 1.0,
+  "warnings": [],
+  "errors": [],
+  "unmapped_gls_count": 0,
+  "missing_dates_count": 0,
+  "missing_amounts_count": 0,
+  "currency_issues": {},
+  "date_gaps_count": 0
+}

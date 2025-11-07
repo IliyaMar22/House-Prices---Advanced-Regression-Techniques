@@ -1,0 +1,127 @@
+{
+  "metadata": {
+    "generated_at": "2025-10-14T23:51:51.976481",
+    "manifest_version": "1.0",
+    "pipeline_version": "1.0.0"
+  },
+  "input_files": {
+    "mapping": {
+      "path": "data/mapping.csv",
+      "exists": true,
+      "size_bytes": 751,
+      "modified_at": "2025-10-14T23:18:33.110266",
+      "md5": "7dff88a26adc218c7bb4160c665923a2",
+      "sha256": "a76bb5e0d0ecbcbd61e78d561407fee9b0678ac82b7a41cff5a000cfa2a593a3"
+    },
+    "fagl": {
+      "path": "data/sample_fagl03.csv",
+      "exists": true,
+      "size_bytes": 250649,
+      "modified_at": "2025-10-14T23:19:21.737856",
+      "md5": "3505e50104ed4005e000c14cf78252e3",
+      "sha256": "f84fc0680391d7547d0ae8ec151d3e562eed0f1aae14b4285dfd41bd1c85c9b7"
+    }
+  },
+  "validation": {
+    "is_valid": true,
+    "quality_score": 1.0,
+    "warnings": [],
+    "errors": [],
+    "unmapped_gls_count": 0,
+    "missing_dates_count": 0,
+    "missing_amounts_count": 0,
+    "currency_issues": {},
+    "date_gaps_count": 0
+  },
+  "processing_stats": {
+    "total_transactions": 2736,
+    "mapped_transactions": 2736,
+    "unmapped_transactions": 0,
+    "date_range": {
+      "start": "2024-04-22 00:00:00",
+      "end": "2025-10-20 00:00:00"
+    },
+    "processing_time_seconds": null
+  },
+  "configuration": {
+    "mapping_file": "data/mapping.csv",
+    "fagl_dir": null,
+    "fagl_file": "data/sample_fagl03.csv",
+    "output_dir": "reports/",
+    "start_date": null,
+    "end_date": null,
+    "entity": null,
+    "amount_sign_convention": "positive_debit",
+    "default_currency": "EUR",
+    "aging_buckets": [
+      [
+        0,
+        0,
+        "Current"
+      ],
+      [
+        1,
+        30,
+        "0-30 days"
+      ],
+      [
+        31,
+        60,
+        "31-60 days"
+      ],
+      [
+        61,
+        90,
+        "61-90 days"
+      ],
+      [
+        91,
+        999999,
+        ">90 days"
+      ]
+    ],
+    "analytics": {
+      "enable_growth_metrics": true,
+      "enable_ratios": true,
+      "rolling_windows": [
+        3,
+        6,
+        12
+      ],
+      "enable_seasonality": true,
+      "enable_anomaly_detection": true,
+      "anomaly_threshold_zscore": 3.0,
+      "anomaly_threshold_mad": 3.5,
+      "use_isolation_forest": true,
+      "enable_forecasting": true,
+      "forecast_periods": 6,
+      "top_n_vendors": 10,
+      "top_n_customers": 10,
+      "top_n_expenses": 15,
+      "pareto_threshold": 0.8
+    },
+    "ar_ap": {
+      "calculate_dso": true,
+      "calculate_dpo": true,
+      "flag_overdue": true,
+      "overdue_threshold_days": 30
+    },
+    "output": {
+      "generate_excel": true,
+      "generate_pptx": true,
+      "generate_dashboard": false
+    },
+    "nlp": {
+      "enable_commentary": true,
+      "explain_mode": false
+    }
+  },
+  "environment": {
+    "python_version": "3.9.6 (default, Feb  3 2024, 15:58:28) \n[Clang 15.0.0 (clang-1500.3.9.4)]",
+    "platform": "macOS-14.1.1-x86_64-i386-64bit",
+    "system": "Darwin",
+    "machine": "x86_64",
+    "processor": "i386",
+    "hostname": "Bilyanas-MacBook-Pro.local"
+  }
+}

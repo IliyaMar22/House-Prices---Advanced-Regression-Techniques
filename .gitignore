@@ -42,7 +42,6 @@ htmlcov/
 .tox/
 
 # Reports and outputs
-reports/
 logs/
 *.log
 
